@@ -21,7 +21,7 @@ router.post("/login", async (req, res) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
   });
   return res.json({
     message: "Login successful",
@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
   res.cookie("token", "", {
     httpOnly: true,
-    secure: false,
+    secure: true,
     maxAge: 0,
   });
 
