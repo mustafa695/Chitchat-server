@@ -22,14 +22,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // replace with your frontend URL
+    origin: "https://chitchat-eight-alpha.vercel.app", // replace with your frontend URL
     // methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Change to your client URL
+  origin: 'https://chitchat-eight-alpha.vercel.app', // Change to your client URL
   credentials: true,
 }));
 
