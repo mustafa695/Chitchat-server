@@ -34,7 +34,7 @@ router.post("/logout", (req, res) => {
   res.cookie("token", "", {
     httpOnly: true,
     secure: true,
-    maxAge: 0,
+   sameSite: 'None'
   });
 
   return res.json({ message: "Logout successful", success: true });
