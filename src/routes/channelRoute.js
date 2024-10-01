@@ -46,7 +46,8 @@ module.exports = (io) => {
 
   //Get Channels of users
   router.get("/", async (req, res) => {
-    const { userId } = req.query;
+    const userId = req?.id;
+
     try {
       const channels = await Channel.find({
         users: userId,
@@ -62,8 +63,7 @@ module.exports = (io) => {
   //Get Channels messages
   router.get("/channelMessages", async (req, res) => {
     const { channelId } = req.query;
-    console.log({channelId});
-    
+
     try {
       const channels = await ChannelMessage.find({
         chatRoom: channelId,

@@ -29,15 +29,16 @@ module.exports = (io) => {
   });
 
   // Get Messages between two users
-  router.get("/messages/:user1Id/:user2Id", async (req, res) => {
-    const { user1Id, user2Id } = req.params;
+  router.get("/messages/:recieverId", async (req, res) => {
+    const { recieverId } = req.params;
     const { limit = 10, skip = 0 } = req.query;
+    const userId = req?.id;
 
     try {
       const messages = await Message.find({
         $or: [
-          { sender: user1Id, receiver: user2Id },
-          { sender: user2Id, receiver: user1Id },
+          { sender: userId, receiver: recieverId },
+          { sender: recieverId, receiver: userId },
         ],
       })
         .sort({ createdAt: -1 })
