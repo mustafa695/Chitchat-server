@@ -22,8 +22,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://chitchat-eight-alpha.vercel.app", // replace with your frontend URL
-    // methods: ["GET", "POST"],
+    origin: "https://chitchat-eight-alpha.vercel.app",
+    methods: ["GET", "POST", "OPTIONS"],
     credentials: true,
   },
 });
